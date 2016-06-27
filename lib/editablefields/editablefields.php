@@ -103,6 +103,7 @@ class EditableFieldsTable extends DataManager
 			while($row = $dbResult->fetch()) 
 			{
 				//TODO: вывод разных типов значений
+				static::getDisplaedValue($row);
 				$arResult[$row["ID"]] = $row;
 			}
 			$cache_manager = Application::getInstance()->getTaggedCache();
@@ -112,6 +113,29 @@ class EditableFieldsTable extends DataManager
 			$obCache->endDataCache($arResult);
 		}
 		return $arResult;
+	}
+
+	static function getDisplaedValue(array &$row) {
+
+		switch($row["VALUE_TYPE"])
+		{
+			case "number":
+				$row["DISPLAYED_VALUE"] = (int) $row["VALUE"];
+				break;
+			case "file":
+				$row["DISPLAYED_VALUE"] = \CFile::GetFileArray($row["VALUE"]);
+				break;
+			case "image":
+				$row["DISPLAYED_VALUE"] = \CFile::GetFileArray($row["VALUE"]);
+				break;
+			case "gmap":
+				list($lat, $lng) = explode(",", $row["VALUE"]);
+				$row["DISPLAYED_VALUE"] = round($lat, 5) . ", " . round($lng, 5);
+				break;
+			default:
+				$row["DISPLAYED_VALUE"] = $row["VALUE"];
+			break;
+		}
 	}
 
 	static function clearEditableFieldsCache()
