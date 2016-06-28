@@ -103,7 +103,7 @@ class EditableFieldsTable extends DataManager
 			while($row = $dbResult->fetch()) 
 			{
 				//TODO: вывод разных типов значений
-				static::getDisplaedValue($row);
+				static::setDisplaedValue($row);
 				$arResult[$row["ID"]] = $row;
 			}
 			$cache_manager = Application::getInstance()->getTaggedCache();
@@ -115,7 +115,7 @@ class EditableFieldsTable extends DataManager
 		return $arResult;
 	}
 
-	static function getDisplaedValue(array &$row) {
+	static function setDisplaedValue(array &$row) {
 
 		switch($row["VALUE_TYPE"])
 		{
