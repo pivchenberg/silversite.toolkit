@@ -1,5 +1,1 @@
 # silversite.toolkit
-
-| test  |
-|---|
-| test  |
