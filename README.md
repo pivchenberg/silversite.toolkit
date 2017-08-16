@@ -12,7 +12,7 @@
 * Запись utm-меток в cookies *Silversite\Toolkit\UtmCookies*
 * Определение города по IP-адресу *Silversite\Toolkit\YourCity* с использование библиотеки [SxGeo](https://sypexgeo.net/ru/docs/)
 
-##Установка
+## Установка
 1. Скопировать файлы в дирректорию local/modules/silversite.toolkit
 2. Произвести установку модуля из административной части сайта:
 	* *Marketplace > Установленные решения*
