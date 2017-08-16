@@ -1,0 +1,1 @@
+<?require($_SERVER["DOCUMENT_ROOT"]."/local/modules/silversite.toolkit/admin/seo_sitemap_run_custom.php");?>
